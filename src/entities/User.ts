@@ -1,5 +1,5 @@
-import {Column, CreateDateColumn, Entity, PrimaryColumn, UpdateDateColumn} from "typeorm";
-import { v4  as uuid} from "uuid"
+import { Column, CreateDateColumn, Entity, PrimaryColumn, UpdateDateColumn } from "typeorm";
+import { v4 as uuid } from "uuid"
 @Entity("users")
 class User {
     @PrimaryColumn()
@@ -8,6 +8,8 @@ class User {
     name: string;
     @Column()
     email: string;
+    @Column()
+    password: string;
     @Column()
     admin: boolean;
     @CreateDateColumn()
@@ -18,11 +20,11 @@ class User {
     constructor() {
         if (!this.id) {
             this.id = uuid();
-        } 
+        }
     }
 
 }
 
-export { User};
+export { User };
 
 // Entidade < - > ORM < - > BD (users)
